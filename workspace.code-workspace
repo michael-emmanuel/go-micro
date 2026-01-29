@@ -6,5 +6,8 @@
     {
       "path": "broker-service",
     },
+    {
+      "path": "project",
+    },
   ],
 }
