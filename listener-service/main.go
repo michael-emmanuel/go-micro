@@ -43,7 +43,7 @@ func connect() (*amqp.Connection, error) {
 
 	// don't continue until rabbit is ready
 	for {
-		c, err := amqp.Dial("amqp://guest:guest@localhost")
+		c, err := amqp.Dial("amqp://guest:guest@rabbitmq") // "rabbitmq" matches service name in docker-compose
 		if err != nil {
 			fmt.Println("rabitmq not yet ready")
 			counts++
