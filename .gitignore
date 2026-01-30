@@ -1,0 +1,62 @@
+# --------------------------------------------
+# Build outputs
+# --------------------------------------------
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+*.test
+bin/
+build/
+
+# Go modules
+# Ignore Go build cache (not strictly necessary if global ignore is configured)
+*.modcache
+/pkg/
+
+# Runtime / Coverage / Logs
+*.log
+*.tmp
+coverage.out
+
+# --------------------------------------------
+# IDE / Editor configs & OS files
+# --------------------------------------------
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains (GoLand, IntelliJ, etc.)
+.idea/
+*.iml
+
+# Editor backups / swap
+*~
+*.swp
+*.swo
+
+# Workspace (some editors)
+workspace.code-workspace
+
+# --------------------------------------------
+# Environment files / secrets
+# --------------------------------------------
+.env
+.env.local
+.env.*.local
+
+# Avoid committing API keys / credentials accidentally
+*.key
+*.pem
+*.crt
+
+# --------------------------------------------
+# Node/npm (only if front-end has JS tooling)
+# --------------------------------------------
+node_modules/
+dist/
