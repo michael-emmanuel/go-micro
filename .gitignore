@@ -60,3 +60,8 @@ workspace.code-workspace
 # --------------------------------------------
 node_modules/
 dist/
+
+# Database volumes / Docker data
+project/db-data/
+db-data/
+mongo-data/
