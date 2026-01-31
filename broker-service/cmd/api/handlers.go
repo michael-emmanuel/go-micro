@@ -120,6 +120,7 @@ func (app *Config) authenticate(w http.ResponseWriter, a AuthPayload) {
 	response, err := client.Do(request)
 	if err != nil {
 		app.errorJSON(w, err)
+		println("Error authenticating", err)
 		return
 	}
 	defer response.Body.Close()
