@@ -17,7 +17,7 @@ Unlike monoliths, each service:
 - Communicates via HTTP/REST, gRPC, and asynchronous messaging
 - Has its own datastore where applicable
 
-This project includes:​:contentReference[oaicite:1]{index=1}
+This project includes:
 
 | Service      | Tech              | Purpose                                |
 | ------------ | ----------------- | -------------------------------------- |
