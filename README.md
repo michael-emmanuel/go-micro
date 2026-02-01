@@ -1,8 +1,8 @@
 # 🚀 EventMesh (Go Microservices Platform)
 
-**Production-ready microservices architecture written in Go (Golang)**  
+**Microservices architecture written in Go (Golang)**  
 REST, gRPC, RPC, AMQP (RabbitMQ), Postgres, MongoDB — fully containerized and orchestration-ready  
-Built with maintainability, observability, and scalability in mind.
+Built with learning, maintainability, observability, and scalability in mind.
 
 ---
 
