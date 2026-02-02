@@ -1,8 +1,7 @@
 # 🚀 EventMesh (Go Microservices Platform)
 
 **Microservices architecture written in Go (Golang)**  
-REST, gRPC, RPC, AMQP (RabbitMQ), Postgres, MongoDB — fully containerized and orchestration-ready  
-Built with learning, maintainability, observability, and scalability in mind.
+This project showcases a multi-service architecture using REST, gRPC, RPC, and AMQP (RabbitMQ) for inter-service communication, with PostgreSQL and MongoDB as backing data stores. It demonstrates the core building blocks of service-to-service communication in a fully containerized, orchestration-ready environment.
 
 ---
 
@@ -10,7 +9,7 @@ Built with learning, maintainability, observability, and scalability in mind.
 
 This repository contains a suite of loosely coupled microservices demonstrating a real distributed backend built with Go.
 
-Unlike monoliths, each service:
+Each service:
 
 - Is independently deployable
 - Encapsulates a single business concern
@@ -62,71 +61,16 @@ git clone https://github.com/michael-emmanuel/go-micro.git
 cd go-micro
 ```
 
-### 2) Environment Setup
+### 2) Build & Run (Docker)
 
-Copy example env:
-
-```sh
-cp .env.example .env
-# Update DB creds, ports, secrets
-```
-
-> Credentials should be stored securely in Vault / Kubernetes secrets for prod.
-
-### 3) Build & Run (Kubernetes)
-
-From k8s folder run:
+From projects folder run:
 
 ```sh
-kubectl apply -f k8s
+make up_build
+make build_front_linux
 ```
 
-Setup minikube tunner
-
-```sh
-minikube tunnel
-```
-
-Services will be available at:
-
-- `frontend.info` — Frontend
-- `broker-service.info` — Broker API
-
----
-
-## 💡 Architecture Diagram
-
-```
-                                       +----------------+
-                                       |   Frontend UI  |
-                                       | (Static Web UI)|
-                                       +--------+-------+
-                                                |
-                                                | REST / HTTP
-                                                v
-                                      +----------------------+
-                                      |      API Gateway     |
-                                      | (Broker Service)     |
-                                      +---+--------------+---+
-                                          |              |
-                        REST/HTTP         |              | gRPC / HTTP / JSON
-                                          |              |
-                     +----------------+   v              v +------------------+
-                     | Auth Service   |------------------->| Logging Service  |
-                     | (PostgreSQL)   |      gRPC/RPC      | (MongoDB)        |
-                     +----------------+                    +------------------+
-                          |   ^                                  |
-                          |   |                                  |
-                          v   |                              Logging
-                     +----------------+                      +-----------+
-                     | Mail Service   |<--- AMQP/RabbitMQ ---| Listener  |
-                     | (Email Sender) |                      | Service   |
-                     +----------------+                      +-----------+
-                           ^                                        |
-                           |                AMQP Messages           |
-                           +----------------------------------------+
-
-```
+Frontend GUI on localhost
 
 ---
 
@@ -138,14 +82,6 @@ Services will be available at:
 
 ```http
 POST /api/authenticate
-```
-
-### gRPC
-
-**UserService**
-
-```proto
-POST /api/log-grpc
 ```
 
 ### AMQP
